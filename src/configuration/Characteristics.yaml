@@ -1,0 +1,162 @@
+---
+icon:
+  Wolf: 🐺
+  Anaconda: 🐍
+  Fox: 🦊
+  Bear: 🐻
+  Eagle: 🦅
+  Horse: 🐎
+  Deer: 🦌
+  Rabbit: 🐇
+  Mouse: 🐁
+  Goat: 🐐
+  Sheep: 🐑
+  Boar: 🐗
+  Buffalo: 🐃
+  Duck: 🦆
+  Caterpillar: 🐛
+  Plant: 🌿
+weight:
+  Wolf: 50
+  Anaconda: 15
+  Fox: 8
+  Bear: 500
+  Eagle: 6
+  Horse: 400
+  Deer: 300
+  Rabbit: 2
+  Mouse: 0.05
+  Goat: 60
+  Sheep: 70
+  Boar: 400
+  Buffalo: 700
+  Duck: 1
+  Caterpillar: 0.01
+  Plant: 1
+maxCountEntity:
+  Wolf: 30
+  Anaconda: 30
+  Fox: 30
+  Bear: 5
+  Eagle: 20
+  Horse: 20
+  Deer: 20
+  Rabbit: 150
+  Mouse: 500
+  Goat: 140
+  Sheep: 140
+  Boar: 50
+  Buffalo: 10
+  Duck: 200
+  Caterpillar: 1000
+  Plant: 200
+maxCountStep:
+  Wolf: 3
+  Anaconda: 1
+  Fox: 2
+  Bear: 2
+  Eagle: 3
+  Horse: 4
+  Deer: 4
+  Rabbit: 2
+  Mouse: 1
+  Goat: 3
+  Sheep: 3
+  Boar: 2
+  Buffalo: 3
+  Duck: 4
+  Caterpillar: 0
+maxSatiety:
+  Wolf: 8
+  Anaconda: 3
+  Fox: 2
+  Bear: 80
+  Eagle: 1
+  Horse: 60
+  Deer: 50
+  Rabbit: 0.45
+  Mouse: 0.01
+  Goat: 10
+  Sheep: 15
+  Boar: 50
+  Buffalo: 100
+  Duck: 0.15
+  Caterpillar: 0
+successOfReproduce: #count of children + probability of offspring survival
+  Wolf: 150
+  Anaconda: 300
+  Fox: 200
+  Bear: 120
+  Eagle: 270
+  Horse: 100
+  Deer: 80
+  Rabbit: 700
+  Mouse: 980
+  Goat: 120
+  Sheep: 240
+  Boar: 140
+  Buffalo: 110
+  Duck: 580
+  Caterpillar: 1980
+  Plant: 500
+chanceOfGettingFood:
+  Wolf:
+    Horse: 10
+    Deer: 15
+    Rabbit: 60
+    Mouse: 80
+    Goat: 60
+    Sheep: 70
+    Boar: 15
+    Buffalo: 10
+    Duck: 40
+  Anaconda:
+    Fox: 15
+    Rabbit: 20
+    Mouse: 40
+    Duck: 10
+  Fox:
+    Rabbit: 70
+    Mouse: 90
+    Duck: 60
+    Caterpillar: 40
+  Bear:
+    Anaconda: 80
+    Horse: 40
+    Deer: 80
+    Rabbit: 80
+    Mouse: 90
+    Goat: 70
+    Sheep: 70
+    Boar: 50
+    Buffalo: 20
+    Duck: 10
+  Eagle:
+    Fox: 10
+    Rabbit: 90
+    Mouse: 90
+    Duck: 80
+  Horse:
+    Plant: 100
+  Deer:
+    Plant: 100
+  Rabbit:
+    Plant: 100
+  Mouse:
+    Caterpillar: 90
+    Plant: 100
+  Goat:
+    Plant: 100
+  Sheep:
+    Plant: 100
+  Boar:
+    Mouse: 50
+    Caterpillar: 90
+    Plant: 100
+  Buffalo:
+    Plant: 100
+  Duck:
+    Caterpillar: 90
+    Plant: 100
+  Caterpillar:
+    Plant: 100

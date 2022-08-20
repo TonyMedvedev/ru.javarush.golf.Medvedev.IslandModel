@@ -1,13 +1,18 @@
 package entity.animal;
 
-import configuration.YAMLData;
+import configuration.Characteristic;
+import entity.Direction;
 import entity.Entity;
 import entity.EntityCreator;
+import island.Island;
 import island.Region;
+
+import java.util.Random;
 
 public class Animal extends Entity {
 
-    public Region region;
+    private Region region;
+    private Random random = new Random();
 
     public Animal() {
     }
@@ -17,32 +22,35 @@ public class Animal extends Entity {
     }
 
     public void reproduce(Region region) {
-        toReproduce(region);
+        int countEntityOnRegion = region.getCountEntityOnRegion(this.getClass());
+        int maxCountEntity = Characteristic.MAX_COUNT_ENTITY.get(this.getClass().getSimpleName());
+        int successOfReproduce = Characteristic.SUCCESS_OF_REPRODUCE.get(this.getClass().getSimpleName());
+        int countChild = ((countEntityOnRegion / 2) * successOfReproduce) / 100;
+        int countEntity = countEntityOnRegion + countChild;
+
+        int countNewEntity = countEntity <= maxCountEntity ? countChild : maxCountEntity - countEntity;
+        for (int i = 0; i < countNewEntity; i++) {
+            region.addEntity(EntityCreator.getNewEntity(this.getClass().getSimpleName()));
+        }
     }
 
-    public void chooseDirection(Region region) {
-        toChooseDirection(region);
+    public void move(Region region) {
+        Island island = region.getIsland();
+        Direction direction = Direction.values()[random.nextInt(Direction.values().length)];
+        int maxCountSteps = Characteristic.MAX_COUNT_STEP.get(this.getClass().getSimpleName());
+        int countSteps = random.nextInt(maxCountSteps);
+        Region newRegion = island.getRegion(region, direction, countSteps);
+        if (!region.equals(newRegion)) {
+            newRegion.addEntity(this);
+            region.deleteEntity(this);
+        }
     }
 
     public void eat(Region region) {
-        toEat(region);
+//        toEat(region);
     }
 
-
-    private void toReproduce(Region region) {
-//        If count of entities < max count of entities create new entity
-        if (region.getCountEntityOnRegion(this.getClass()) < YAMLData.MAX_COUNT_ENTITY.get(this.getClass().getSimpleName())) {
-            region.addEntity(EntityCreator.getNewEntity(this.getClass().getSimpleName()));
-        }
-        System.out.println("To reproduce");
-    }
-
-    private void toChooseDirection(Region region) {
-        System.out.println("To choose direction");
-    }
-
-    private void toEat(Region region) {
-        System.out.println(this.getClass().getSimpleName() + " to eat.");
+    public void feelHungryOrDie(Region region) {
 
     }
 }

@@ -1,4 +1,7 @@
+
+
 import island.Island;
+import island.Region;
 
 import java.util.Scanner;
 
@@ -21,9 +24,14 @@ public class Runner {
 
         Island island = new Island(width, length);
 
-//        island.getRegions().forEach(Region::printStatistic);
+        island.getRegions().forEach(Region::printStatistic);
         island.bringAnimalToLive();
-//        island.getRegions().forEach(Region::printStatistic);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        island.getRegions().forEach(Region::printStatistic);
 
 //        double satiety = new Wolf().getSatiety();
 

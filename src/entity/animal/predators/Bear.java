@@ -1,6 +1,7 @@
 package entity.animal.predators;
 
 import entity.animal.Animal;
+import island.Region;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,4 +9,19 @@ import lombok.Setter;
 @Setter
 public class Bear extends Animal {
     private double satiety;
+
+    public Bear() {
+    }
+
+    public Bear(Region region) {
+        super(region);
+    }
+
+    public double getSatiety() {
+        return satiety;
+    }
+
+    public void setSatiety(double satiety) {
+        this.satiety = satiety;
+    }
 }

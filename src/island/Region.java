@@ -1,16 +1,13 @@
 package island;
 
-import configuration.YAMLData;
+import configuration.Characteristic;
 import entity.Entity;
 import entity.EntityCreator;
 import entity.animal.herbivores.*;
 import entity.animal.predators.*;
-import entity.plant.Plant;
+import entity.plant.supposedPlant.Plant;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -18,22 +15,23 @@ public class Region implements Runnable {
 
     private final Lock lock = new ReentrantLock(true);
     private final Coordinate coordinate;
-    private final HashMap<String, Integer> maxCountEntity = YAMLData.MAX_COUNT_ENTITY;
-    private final HashMap<String, String> icon = YAMLData.ICON;
+    private final Island island;
+    private final HashMap<String, Integer> maxCountEntity = Characteristic.MAX_COUNT_ENTITY;
+    private final HashMap<String, String> icon = Characteristic.ICON;
 
     private volatile List<Entity> entities = new ArrayList<>();
     private Random random = new Random();
 
 
-    public Region(Coordinate coordinate) {
+    public Region(Coordinate coordinate, Island island) {
         this.coordinate = coordinate;
+        this.island = island;
         generateEntities();
     }
 
-
-//    public Lock getLock() {
-//        return lock;
-//    }
+    public Island getIsland(){
+        return island;
+    }
 
     public int getCountEntityOnRegion(Class<? extends Entity> clazz) {
         return entities.stream()
@@ -50,13 +48,22 @@ public class Region implements Runnable {
         entities.remove(entity);
     }
 
-    public synchronized List<Entity> getEntityList(Entity entity) {
+    public synchronized List<Entity> getEntityList() {
         return entities;
+    }
+
+    public Coordinate getCoordinate() {
+        return coordinate;
     }
 
     @Override
     public void run() {
-
+        Entity entity = new Entity();
+//        entity.toEat(this);
+        entity.toReproduce(this);       //WORKED
+        entity.toMove(this);            //WORKED
+//        entity.toFeelHungryOrDie(this);
+        entity.toSpread(this);      //WORKED
     }
 
     public void printStatistic() {

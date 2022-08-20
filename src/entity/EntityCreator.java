@@ -2,7 +2,7 @@ package entity;
 
 import entity.animal.herbivores.*;
 import entity.animal.predators.*;
-import entity.plant.Plant;
+import entity.plant.supposedPlant.Plant;
 
 public class EntityCreator {
 
@@ -30,6 +30,7 @@ public class EntityCreator {
 
             //Plants
             case "Plant" -> new Plant();
+
             default -> throw new RuntimeException();
         };
     }
