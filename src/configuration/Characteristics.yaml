@@ -17,22 +17,22 @@ icon:
   Caterpillar: 🐛
   Plant: 🌿
 weight:
-  Wolf: 50
-  Anaconda: 15
-  Fox: 8
-  Bear: 500
-  Eagle: 6
-  Horse: 400
-  Deer: 300
-  Rabbit: 2
+  Wolf: 50.0
+  Anaconda: 15.0
+  Fox: 8.0
+  Bear: 500.0
+  Eagle: 6.0
+  Horse: 400.0
+  Deer: 300.0
+  Rabbit: 2.0
   Mouse: 0.05
-  Goat: 60
-  Sheep: 70
-  Boar: 400
-  Buffalo: 700
-  Duck: 1
+  Goat: 60.0
+  Sheep: 70.0
+  Boar: 400.0
+  Buffalo: 700.0
+  Duck: 1.0
   Caterpillar: 0.01
-  Plant: 1
+  Plant: 1.0
 maxCountEntity:
   Wolf: 30
   Anaconda: 30
@@ -67,21 +67,21 @@ maxCountStep:
   Duck: 4
   Caterpillar: 0
 maxSatiety:
-  Wolf: 8
-  Anaconda: 3
-  Fox: 2
-  Bear: 80
-  Eagle: 1
-  Horse: 60
-  Deer: 50
+  Wolf: 8.0
+  Anaconda: 3.0
+  Fox: 2.0
+  Bear: 80.0
+  Eagle: 1.0
+  Horse: 60.0
+  Deer: 50.0
   Rabbit: 0.45
   Mouse: 0.01
-  Goat: 10
-  Sheep: 15
-  Boar: 50
-  Buffalo: 100
+  Goat: 10.0
+  Sheep: 15.0
+  Boar: 50.0
+  Buffalo: 100.0
   Duck: 0.15
-  Caterpillar: 0
+  Caterpillar: 0.0
 successOfReproduce: #count of children + probability of offspring survival
   Wolf: 150
   Anaconda: 300

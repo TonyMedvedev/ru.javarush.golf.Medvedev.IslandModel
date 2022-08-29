@@ -16,12 +16,4 @@ public class Buffalo extends Animal {
     public Buffalo(Region region) {
         super(region);
     }
-
-    public double getSatiety() {
-        return satiety;
-    }
-
-    public void setSatiety(double satiety) {
-        this.satiety = satiety;
-    }
 }

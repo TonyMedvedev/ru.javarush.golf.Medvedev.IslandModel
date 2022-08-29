@@ -3,6 +3,8 @@ package island;
 import configuration.Characteristic;
 import entity.Entity;
 import entity.EntityCreator;
+import entity.animal.Animal;
+import entity.animal.AnimalSatiety;
 import entity.animal.herbivores.*;
 import entity.animal.predators.*;
 import entity.plant.supposedPlant.Plant;
@@ -17,6 +19,7 @@ public class Region implements Runnable {
     private final Coordinate coordinate;
     private final Island island;
     private final HashMap<String, Integer> maxCountEntity = Characteristic.MAX_COUNT_ENTITY;
+    private final HashMap<String, Double> maxSatiety = Characteristic.MAX_SATIETY;
     private final HashMap<String, String> icon = Characteristic.ICON;
 
     private volatile List<Entity> entities = new ArrayList<>();
@@ -27,9 +30,10 @@ public class Region implements Runnable {
         this.coordinate = coordinate;
         this.island = island;
         generateEntities();
+        generateRandomSatiety();
     }
 
-    public Island getIsland(){
+    public Island getIsland() {
         return island;
     }
 
@@ -59,11 +63,11 @@ public class Region implements Runnable {
     @Override
     public void run() {
         Entity entity = new Entity();
-//        entity.toEat(this);
+        entity.toEat(this);             //WORKED
         entity.toReproduce(this);       //WORKED
         entity.toMove(this);            //WORKED
-//        entity.toFeelHungryOrDie(this);
-        entity.toSpread(this);      //WORKED
+        entity.toFeelHungryOrDie(this); //WORKED
+        entity.toSpread(this);          //WORKED
     }
 
     public void printStatistic() {
@@ -104,4 +108,16 @@ public class Region implements Runnable {
         }
     }
 
+    private void generateRandomSatiety(){
+        getEntityList().stream()
+                .filter(entity -> entity instanceof Animal)
+                .forEach(this::setSatiety);
+    }
+
+    private void setSatiety(Entity animal) {
+        Double maxEntitySatiety = maxSatiety.get(animal.getClass().getSimpleName());
+        if (maxEntitySatiety > 0) {
+            AnimalSatiety.set((Animal) animal, random.nextDouble(maxEntitySatiety));
+        }
+    }
 }

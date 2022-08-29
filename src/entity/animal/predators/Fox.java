@@ -16,12 +16,4 @@ public class Fox extends Animal {
     public Fox(Region region) {
         super(region);
     }
-
-    public double getSatiety() {
-        return satiety;
-    }
-
-    public void setSatiety(double satiety) {
-        this.satiety = satiety;
-    }
 }

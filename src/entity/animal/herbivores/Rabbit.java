@@ -16,12 +16,4 @@ public class Rabbit extends Animal {
     public Rabbit(Region region) {
         super(region);
     }
-
-    public double getSatiety() {
-        return satiety;
-    }
-
-    public void setSatiety(double satiety) {
-        this.satiety = satiety;
-    }
 }

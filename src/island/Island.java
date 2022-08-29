@@ -29,7 +29,7 @@ public class Island {
     private void generateRegions() {
         for (int i = 0; i < maxCoordinates.getIslandWidth(); i++) {
             for (int j = 0; j < maxCoordinates.getIslandLenght(); j++) {
-                regions.add(new Region(new Coordinate(i, j),this));
+                regions.add(new Region(new Coordinate(i, j), this));
             }
         }
     }
@@ -37,14 +37,18 @@ public class Island {
     public void bringAnimalToLive() {
 
         int CORE_POOL_SIZE = 4;
-        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(CORE_POOL_SIZE);
-        while (!fixedThreadPool.isShutdown()) {
-            for (Region region : regions) {
-                fixedThreadPool.submit(region);
+        int COUNT_OF_CYCLE = 100;
+
+        for (int i = 0; i <COUNT_OF_CYCLE; i++) {
+            ExecutorService fixedThreadPool = Executors.newFixedThreadPool(CORE_POOL_SIZE);
+            while (!fixedThreadPool.isShutdown()) {
+                for (Region region : regions) {
+                    fixedThreadPool.submit(region);
+                }
+                fixedThreadPool.shutdown();
             }
             fixedThreadPool.shutdown();
         }
-        fixedThreadPool.shutdown();
     }
 
     public Region getRegion(Region currentRegion, Direction direction, int step) {
@@ -96,5 +100,4 @@ public class Island {
         }
         return null;
     }
-////        return regions.stream().filter(region -> coordinate.equals(region.getCoordinate()));
 }

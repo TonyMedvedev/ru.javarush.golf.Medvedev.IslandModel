@@ -16,12 +16,4 @@ public class Anaconda extends Animal {
     public Anaconda(Region region) {
         super(region);
     }
-
-    public double getSatiety() {
-        return satiety;
-    }
-
-    public void setSatiety(double satiety) {
-        this.satiety = satiety;
-    }
 }

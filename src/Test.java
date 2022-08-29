@@ -15,7 +15,7 @@ public class Test {
         for (Region region : regions) {
             System.out.println(region.getEntityList().size());
         }
-        island.getRegions().forEach(Region::printStatistic);
+//        island.getRegions().forEach(Region::printStatistic);
 
         island.bringAnimalToLive();
         try {
@@ -26,6 +26,6 @@ public class Test {
         for (Region region : regions) {
             System.out.println(region.getEntityList().size());
         }
-        island.getRegions().forEach(Region::printStatistic);
+//        island.getRegions().forEach(Region::printStatistic);
     }
 }
